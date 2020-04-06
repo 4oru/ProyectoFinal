@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar  color="tertiary">
+    <ion-title>Editar productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="data.nombre" placeholder="Introducir nombre" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripcion</ion-label>
+    <ion-input [(ngModel)]="data.descripcion" placeholder="Introducir descripcion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio</ion-label>
+    <ion-input [(ngModel)]="data.precio" placeholder="Introducir precio" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Stock</ion-label>
+    <ion-input [(ngModel)]="data.stock" placeholder="Introducir cantidad disponible" type="number"></ion-input>
+  </ion-item>
+  <ion-button (click)="update()" color="success" size="small">
+    Actualizar
+  </ion-button>
+  <ion-button [routerLink]="['/listar']" color="danger" size="small">
+    Cancelar
+  </ion-button>
+</ion-content>
