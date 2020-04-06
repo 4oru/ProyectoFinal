@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Listar todos los productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventarioDatos">
+        <td>{{ item.idProducto }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.descripcion }}</td>
+        <td>{{ item.precio }}</td>
+        <td>{{ item.stock }}</td>
+        <td style="display: flex">
+          <ion-button color="warning" size="small" routerLink='/editar/{{item.idProducto}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item.idProducto)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-button [routerLink]="['/crear']">
+    Agregar productos
+  </ion-button>
+</ion-content>
